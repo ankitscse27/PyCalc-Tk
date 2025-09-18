@@ -37,15 +37,16 @@ No external libraries are needed! All you need is a standard Python 3 installati
 ### Steps
 
 1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/modern-scientific-calculator.git](https://github.com/your-username/modern-scientific-calculator.git)
-    cd modern-scientific-calculator
-    ```
+    
+    git clone [https://github.com/ankitscse27/PyCalc-Tk.git]
+    cd PyCalc-Tk
+
+    
 
 2.  **Run the Python script:**
-    ```bash
-    python scientific_calculator.py
-    ```
+
+    calci.py
+
     The calculator window will appear, ready for you to use!
 
 ---
