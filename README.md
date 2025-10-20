@@ -1,98 +1,118 @@
-# Modern Scientific Calculator
+# ⚛️ PyCalc-Tk: Modern Scientific Calculator
 
-A feature-rich, modern scientific calculator built with Python's native GUI toolkit, Tkinter. This project enhances a standard calculator with scientific functions, an intuitive user interface, and a secure evaluation engine.
-
-
-
-## ✨ Features
-
--   **Standard Arithmetic**: Perform addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`).
--   **Scientific Operations**:
-    -   Square Root (`√`)
-    -   Square (`x²`)
-    -   Parentheses for grouping (`()`) with smart multiplication (e.g., `5(2+3)` is treated as `5*(2+3)`).
-    -   Constants like Pi (`π`).
--   **User-Friendly Interface**:
-    -   A clean, dark-themed UI inspired by modern calculator apps.
-    -   Large, readable display with separate views for the ongoing calculation and the current number.
-    -   Responsive layout that scales with the window size.
-    -   Hover effects on buttons for better visual feedback.
--   **Enhanced Functionality**:
-    -   **Backspace (`⌫`)**: Easily correct input errors.
-    -   **Clear (`C`)**: Reset the entire calculation.
-    -   **Sign Toggle (`+/-`)**: Change the sign of the current number.
--   **Keyboard Support**: Use your keyboard for faster calculations. All numbers, operators, `Enter` (for equals), and `Backspace` are mapped.
--   **Secure & Robust**: Uses a controlled `eval()` environment to prevent arbitrary code execution, ensuring that only safe, defined mathematical operations are performed.
+A feature-rich, modern scientific calculator built with Python's native GUI toolkit, **Tkinter**. This project transforms a standard arithmetic tool into a powerful scientific instrument, featuring an intuitive, dark-themed user interface and a secure computation engine.
 
 ---
 
-## 🚀 How to Run
+## ✨ Features at a Glance
 
-No external libraries are needed! All you need is a standard Python 3 installation.
+This application provides a blend of basic and advanced functions in a clean, high-contrast environment.
+
+### 🧮 Core Functionality
+
+-   **Standard Arithmetic**: Seamlessly perform addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`).
+-   **Scientific Operations**: Access to essential mathematical functions:
+    -   **Square Root** (`√`)
+    -   **Square** (`x²`)
+    -   **Trigonometry**: Sine, Cosine, and Tangent (if implemented in the code).
+    -   **Logarithms**: Base 10 Log (`log10`).
+-   **Mathematical Constants**: Directly use Pi (`π`) and Euler's number (`e`).
+-   **Input Handling**:
+    -   **Parentheses** (`()`) for complex grouping.
+    -   **Smart Multiplication**: Automatically inserts a `*` operator (e.g., `5(2+3)` is correctly parsed as `5 * (2+3)`).
+
+### 🖥️ User Experience (UX)
+
+-   **Modern Dark Theme**: A clean, high-contrast UI inspired by contemporary developer tools and mobile calculator apps.
+-   **Dual Display**: A large, readable screen with separate lines for:
+    1.  **Ongoing Calculation** (history/total expression).
+    2.  **Current Input/Result** (main display).
+-   **Responsive Layout**: The grid-based interface scales gracefully to match the window size.
+-   **Visual Feedback**: **Hover effects** on all buttons provide excellent visual confirmation of interaction.
+
+### 🛠️ Enhanced Controls
+
+-   **Backspace** (`⌫`): Effortlessly correct the last entered character.
+-   **Clear** (`C`): Instantly reset the entire calculator state.
+-   **Sign Toggle** (`+/-`): Quickly change the sign of the current number (negation).
+-   **Full Keyboard Support**: Use your keyboard for maximum speed. All digits, operators, **Enter** (for equals), and **Backspace** are mapped.
+
+---
+
+## 🔒 Secure & Robust Evaluation
+
+The calculator prioritizes security and stability:
+
+-   It employs a **controlled environment** for the Python `eval()` function.
+-   The **`self.allowed_names`** dictionary is the only namespace passed to `eval()`, meaning only explicitly defined, safe mathematical operations (`math.sqrt`, `math.pi`, etc.) can be executed.
+-   This design **prevents** any arbitrary or malicious Python code execution, making the application safe for general use.
+
+---
+
+## 🚀 How to Run PyCalc-Tk
+
+No external packages are required! You only need a standard installation of **Python 3.x** to run the application.
 
 ### Prerequisites
 
--   Python 3.x
+-   Python 3.x (with Tkinter included, which is standard)
 
-### Steps
+### Quick Start Steps
 
-1.  **Clone the repository:**
-    
-    git clone [https://github.com/ankitscse27/PyCalc-Tk.git]
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/ankitscse27/PyCalc-Tk.git](https://github.com/ankitscse27/PyCalc-Tk.git)
     cd PyCalc-Tk
+    ```
 
-    
+2.  **Execute the Script:**
+    ```bash
+    python calci.py
+    ```
 
-2.  **Run the Python script:**
-
-    calci.py
-
-    The calculator window will appear, ready for you to use!
-
----
-
-## 🏛️ Code Overview
-
-The entire application is encapsulated within the `ScientificCalculator` class, making the code organized and easy to understand.
-
-### Key Components
-
--   **Constants**: At the top of the file, styling variables (colors, fonts) are defined for easy customization and consistency.
--   `__init__(self, master)`: The constructor initializes the main window, sets up variables, and calls the helper methods to build the GUI.
--   **Widget Creation (`_create_*` methods)**:
-    -   `_create_display_frame()` and `_create_buttons_frame()`: Set up the main containers for the screen and the buttons.
-    -   `_create_display_labels()`: Creates the two labels for the total expression and current input.
-    -   `_create_buttons()`: Iterates through a dictionary of button layouts and creates each button widget.
--   **Core Logic**:
-    -   `add_to_expression(self, value)`: Appends digits or symbols to the current input string. It includes logic to auto-insert a `*` before an opening parenthesis.
-    -   `add_operator(self, operator)`: Moves the current number and the selected operator to the total expression line.
-    -   `evaluate(self)`: The heart of the calculator. It constructs the final expression and uses a **safe evaluation method** to compute the result.
--   **Safe Evaluation**:
-    -   To prevent security risks associated with the standard `eval()` function, the calculator provides `eval()` with a restricted environment.
-    -   The `self.allowed_names` dictionary explicitly defines which functions (`sqrt`, `log10`, etc.) and constants (`pi`, `e`) are accessible. This ensures that only mathematical operations can be executed.
--   **Event Handling**:
-    -   `_bind_keys(self)`: Maps keyboard presses (e.g., `'1'`, `'+'`, `<Return>`) to the corresponding calculator functions.
-    -   Button `command`s are linked to their respective methods (`self.clear`, `self.evaluate`, etc.).
+    The Scientific Calculator window will appear, ready for use!
 
 ---
 
-## 🔮 Future Enhancements
+## 🏛️ Code Structure
 
-This project has a solid foundation that can be extended with even more features:
+The entire application logic and GUI build process are contained within the well-organized **`ScientificCalculator`** class.
 
--   [ ] **Calculation History**: A panel or dropdown to view and reuse previous calculations.
--   [ ] **Themes**: A toggle switch for Light and Dark modes.
--   [ ] **Advanced Scientific Functions**: Add trigonometric functions (sin, cos, tan), logarithms (ln), and factorials (!).
--   [ ] **Unit Conversions**: A separate mode for converting between common units (e.g., cm to inches, kg to lbs).
+| Component | Description |
+| :--- | :--- |
+| **Constants** | Defines the dark theme's color palette, font families, and sizes for easy global styling changes. |
+| **`__init__`** | Initializes the Tkinter window, expression state variables, and the secure **`self.allowed_names`** dictionary. |
+| **`_create_*` Methods** | Handles the structural setup: frames, labels for the dual display, and the iterative creation of all grid-based buttons. |
+| **`_get_command`** | Acts as a central command router, linking each button's text to its corresponding Python method (e.g., `'='` maps to `self.evaluate`). |
+| **`add_to_expression`** | Core input function. Includes specific logic to handle number/parentheses juxtaposition (smart multiplication). |
+| **`evaluate`** | The culmination of the calculation. Prepares the full expression, sanitizes symbols (e.g., replaces `'π'` with `'pi'`), and safely executes the computation. |
+| **`_bind_keys`** | Maps physical keyboard events (e.g., pressing `+` or `Enter`) to the internal calculator functions for desktop-friendly operation. |
+
+---
+
+## 💡 Future Enhancements
+
+The modular design allows for exciting future development:
+
+-   [ ] **Full Calculation History**: Implement a scrollable panel to view and recall previous results.
+-   [ ] **Themes & Customization**: Add a toggle for Light/Dark mode and allow users to select accent colors.
+-   [ ] **Advanced Functions**: Integrate hyperbolic functions, natural logarithm (`ln`), and factorials (`!`).
+-   [ ] **Scientific Notation**: Improve display logic for very large or very small results using E notation.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you have an idea for a new feature or want to improve the existing code, feel free to fork the repository, make your changes, and submit a pull request.
+We welcome all contributions! Whether it's reporting a bug, suggesting a new feature, or submitting code improvements, please feel free to:
+
+1.  **Fork** the repository.
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a **Pull Request**.
 
 ---
 
 ## 📜 License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the **MIT License**. See the `LICENSE` file in the repository for full details.
